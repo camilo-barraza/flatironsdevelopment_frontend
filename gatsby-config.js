@@ -7,6 +7,15 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        fieldName: `fl`,
+        url: `https://flatironsdev2.wpengine.com/graphql`,
+        typeName: `flatirons_website`,
+        refetchInterval: 60,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
