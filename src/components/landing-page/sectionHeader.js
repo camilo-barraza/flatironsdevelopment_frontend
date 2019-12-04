@@ -1,6 +1,6 @@
 import React from "react"
 
-export const SectionHeader  = ({name, title}) => (<div className='centered'>
+export const SectionHeader  = ({name, title, color}) => (<div className='centered'>
   <div >
     <div className='sectionName'>
       {name.toUpperCase()}
@@ -24,14 +24,14 @@ export const SectionHeader  = ({name, title}) => (<div className='centered'>
       font-size: 14px;
       letter-spacing: 1.66px;
       text-align: center;
-      color: #071638;
+      color: ${color? color : '#071638'};
     }
     .title{
       font-family: DM Serif Text;
       font-size: 48px;
       line-height: 1.65;
       text-align: center;
-      color: ##071638
+      color: ${color? color : '#071638'}
     }
   `}</style>
 </div>)

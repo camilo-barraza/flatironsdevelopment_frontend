@@ -19,7 +19,7 @@ export const Clients = () => (<div className='wrapper centered'>
     <div className='centered'>
       <div className='underline'></div>
     </div>
-    <div className='clients '>
+    <div className='clients'>
       <img alt='logo' className='logo' src={nyt}></img>
       <img alt='logo' className='logo' src={ibm}></img>
       <img alt='logo' className='logo' src={ups}></img>
