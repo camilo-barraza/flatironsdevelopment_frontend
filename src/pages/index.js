@@ -5,12 +5,18 @@ import SEO from "../components/seo"
 import Menu from "../components/menu"
 import { LandingHeader } from "../components/landing-page/landingHeader"
 import { Clients } from "../components/landing-page/clients"
+import { Testimonials } from "../components/landing-page/testimonials"
+import { Helmet } from "react-helmet"
 
 const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
   return (
     <div>
+      <Helmet>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+      </Helmet>
       <LandingHeader></LandingHeader>
       <Clients></Clients>
+      <Testimonials></Testimonials>
       <Menu></Menu>
       <div>colo</div>
       <SEO title="Home" />

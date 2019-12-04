@@ -20,17 +20,17 @@ export const Clients = () => (<div className='wrapper centered'>
       <div className='underline'></div>
     </div>
     <div className='clients '>
-      <img className='logo' src={nyt}></img>
-      <img className='logo' src={ibm}></img>
-      <img className='logo' src={ups}></img>
-      <img className='logo' src={xog}></img>
-      <img className='logo' src={joh}></img>
-      <img className='logo' src={amp}></img>
-      <img className='logo' src={fed}></img>
-      <img className='logo' src={gus}></img>
-      <img className='logo' src={hac}></img>
-      <img className='logo' src={sap}></img>
-      <img className='logo' src={pep}></img>
+      <img alt='logo' className='logo' src={nyt}></img>
+      <img alt='logo' className='logo' src={ibm}></img>
+      <img alt='logo' className='logo' src={ups}></img>
+      <img alt='logo' className='logo' src={xog}></img>
+      <img alt='logo' className='logo' src={joh}></img>
+      <img alt='logo' className='logo' src={amp}></img>
+      <img alt='logo' className='logo' src={fed}></img>
+      <img alt='logo' className='logo' src={gus}></img>
+      <img alt='logo' className='logo' src={hac}></img>
+      <img alt='logo' className='logo' src={sap}></img>
+      <img alt='logo' className='logo' src={pep}></img>
     </div>
   </div>
   <style jsx>{`
@@ -60,7 +60,7 @@ export const Clients = () => (<div className='wrapper centered'>
       background-color: rgba(255, 255, 255, 0.96);
     }
     .title{
-      margin: 44px 8% 4px 8%;
+      margin: 44px 8% 5px 8%;
       font-family: Montserrat;
       font-size: 14px;
       letter-spacing: 1.66px;

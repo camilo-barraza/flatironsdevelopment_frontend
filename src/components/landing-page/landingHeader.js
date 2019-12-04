@@ -44,6 +44,7 @@ export const LandingHeader = () => {
         cursor:pointer;
         background-color:#e6bd32 !important;
         box-shadow: 0 2px 10px 0 rgba(25, 38, 53, 0.3);
+        transition: background-color 250ms linear;
       }
       .button{
         width: 270px;
@@ -56,6 +57,7 @@ export const LandingHeader = () => {
         font-weight: 600;
         text-align: center;
         color: #ffffff;
+        transition: background-color 250ms linear;
       }
       .wrapper{
         position:relative;
