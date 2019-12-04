@@ -3,12 +3,14 @@ import { Link, graphql } from "gatsby"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import Menu from "../components/menu"
-import { LandingHeader } from "../components/landing-page/header"
+import { LandingHeader } from "../components/landing-page/landingHeader"
+import { Clients } from "../components/landing-page/clients"
 
 const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
   return (
     <div>
       <LandingHeader></LandingHeader>
+      <Clients></Clients>
       <Menu></Menu>
       <div>colo</div>
       <SEO title="Home" />
