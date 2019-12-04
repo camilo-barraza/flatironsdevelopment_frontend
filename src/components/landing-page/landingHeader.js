@@ -63,26 +63,24 @@ export const LandingHeader = () => {
         position:relative;
         width: 100%;
         height: 800px;
-        background-color: blue;
-        display: flex ;
-        background: url(${backgroundImg}) no-repeat center;
-        background-size: cover;
-        background-position:right;
       }
       .wrapper:after {
-        top: 0;
-        left: -25%;
+        top: 0%;
+        left:-5%;
         z-index: -1;
-        width: 150%;
-        height: 75%;
-        background: #dd3333;
-        -webkit-transform: rotate(-2deg);
-        transform: rotate(-2deg);
+        width: 110%;
+        height: 105%;
+        -webkit-transform: rotate(-3deg);
+        transform: rotate(-3deg);
         -webkit-transform-origin: 0 0;
         transform-origin: 0 0;
         position: absolute;
         content: '';
+        background: url(${backgroundImg}) no-repeat center;
+        background-size: cover;
+        background-position:right;
         pointer-events: none;
+        background-color:#2a52a9;
       }
       .content{
         font-family: DM Serif Text;
