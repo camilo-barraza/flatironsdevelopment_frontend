@@ -17,8 +17,12 @@ const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
       </Helmet>
       <LandingHeader></LandingHeader>
       <Clients></Clients>
-      <Testimonials></Testimonials>
-      <Technologies></Technologies>
+      <div id="testimonials">
+        <Testimonials></Testimonials>
+      </div>
+      <div id="technologies">
+        <Technologies></Technologies>
+      </div>
       <Menu></Menu>
       <div>colo</div>
       <SEO title="Home" />

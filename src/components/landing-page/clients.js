@@ -11,9 +11,9 @@ import hac from './assets/clients/hachette-book-group-logo.png'
 import sap from './assets/clients/logo-sap-white-34-nuo-34-merfwje-3-s-5-dujnk-1.png'
 import pep from './assets/clients/pepsi.png'
 
-export const Clients = () => (<div className='wrapper centered'>
+export const Clients = () => (<div id="clients" className='wrapper centered'>
   <div className='card'>
-    <div className='title centered'>
+    <div  className='title centered'>
       OUR TEAM MEMBERS HAVE BUILT SOFTWARE FOR
     </div>
     <div className='centered'>
