@@ -1,13 +1,16 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
-import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import Menu from "../components/menu"
+import { LandingHeader } from "../components/landing-page/header"
 
 const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
   return (
-    <Layout>
+    <div>
+      <LandingHeader></LandingHeader>
+      <Menu></Menu>
+      <div>colo</div>
       <SEO title="Home" />
       <div style={{backgroundColor:'blue'}}>
         <h1 className='header'>Build Better Products.</h1>
@@ -46,12 +49,12 @@ const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
           color: #d0e9f8;
         }
       `}</style>
-    </Layout>
+    </div>
   )
 }
 
 export const query = graphql`
-  query MyQuery {
+  query getPosts {
     fl {
       posts(first: 10000) {
         edges {
