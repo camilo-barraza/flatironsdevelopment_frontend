@@ -25,14 +25,14 @@ export const Testimonials = () => {
                   sourceUrl
                 }
               }
-              buttonText
+              testimonialsButtonText
             }
           }
         }
       }
     }
   `)
-  let { testimonials, buttonText } = pageContent
+  let { testimonials, testimonialsButtonText:buttonText } = pageContent
   const [animation, setAnimation] = useState('fade-in')
   const [selectedTestimonial, setSelectedTestimonial] = useState(0);
   let data = testimonials[selectedTestimonial]

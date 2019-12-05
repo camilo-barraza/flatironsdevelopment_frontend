@@ -1,27 +1,28 @@
 import React from "react"
 import { SectionHeader } from "./sectionHeader"
+import { useStaticQuery, graphql } from "gatsby"
 
-const Project = ({ orientation }) => (<div className='centered'>
+const Project = ({ orientation, numberedImage, project, description, projectImage }) => (<div className='centered'>
   <div className='wrapper horizontal'>
     {orientation === 'right' &&
       <div className='img'>
-        <img  src='tattle.png' alt='project-img'></img>
+        <img  src={projectImage.sourceUrl} alt='project-img'></img>
       </div>}
     <div className='project-description'>
       <div className='number-img'>
-        <img src='01.png'></img>
+        <img src={numberedImage.sourceUrl}></img>
       </div>
       <div className='title'>
-        Tattle
+        {project}
       </div>
       <div className='underline'></div>
       <div className='content'>
-        Tattle is an analytics platform that measures customer’s dining experiences, delivering real-time feedback to their partners in hospitality. Tattle hired me to roll out a new product offering called Snapshots, which generates actionable insights from the data collected to help the general managers, district managers, and executives of restaurant chains focus on improving the areas that matter most to their customers.
+        {description}
       </div>
     </div>
     {orientation === 'left' &&
       <div className='img'>
-        <img  src='tattle.png' alt='project-img'></img>
+        <img  src={projectImage.sourceUrl} alt='project-img'></img>
       </div>}
   </div>
   <style jsx>{`
@@ -45,7 +46,7 @@ const Project = ({ orientation }) => (<div className='centered'>
     }
     .title{
       margin-top:76px;
-      width: 94px;
+      text-align:left;
       height: 39px;
       font-family: Montserrat;
       font-size: 32px;
@@ -67,21 +68,45 @@ const Project = ({ orientation }) => (<div className='centered'>
   `}</style>
 </div>)
 
-export const Portfolio = () => (<div className='wrapper'>
-  <div className='section-header'>
-    <SectionHeader name="Portfolio" title="Most Recent Work"></SectionHeader>
-  </div>
-  <Project orientation="left"></Project>
-  <Project orientation="right"></Project>
-  <Project orientation="left"></Project>
-  <Project orientation="right"></Project>
-
-  <style jsx>{`
-    .section-header{
-      margin-top:89px;
+export const Portfolio = () => {
+  let { fl: { pages: { nodes:[ { pageContent: { mostRecentWork } } ] } }  } = useStaticQuery(
+    graphql`
+    query MostRecentWork {
+      fl{
+        pages(where:{title:"Landing"}){
+           nodes{
+            title
+            pageContent{
+              mostRecentWork{
+                numberedImage{
+                  sourceUrl
+                }
+                project
+                description
+                projectImage {
+                  sourceUrl
+                }
+              }
+            }
+          }
+        }
+      }
     }
-    .wrapper{
-      margin-bottom:191px;
-    }
-  `}</style>
-</div>)
+  `)
+  return (<div className='wrapper'>
+    <div className='section-header'>
+      <SectionHeader name="Portfolio" title="Most Recent Work"></SectionHeader>
+    </div>
+    {mostRecentWork.map((project, index) => (<div key={index}>
+      <Project {...project} orientation={index%2 === 0? 'left': 'right'} />
+    </div>))}
+    <style jsx>{`
+      .section-header{
+        margin-top:89px;
+      }
+      .wrapper{
+        margin-bottom:191px;
+      }
+    `}</style>
+  </div>)
+}
