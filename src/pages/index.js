@@ -8,6 +8,7 @@ import { Clients } from "../components/landing-page/clients"
 import { Testimonials } from "../components/landing-page/testimonials"
 import { Helmet } from "react-helmet"
 import { Technologies } from "../components/landing-page/technologies"
+import { Portfolio } from "../components/landing-page/portfolio"
 
 const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
   return (
@@ -22,6 +23,9 @@ const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
       </div>
       <div id="technologies">
         <Technologies></Technologies>
+      </div>
+      <div id="#portfolio">
+        <Portfolio></Portfolio>
       </div>
       <Menu></Menu>
       <div>colo</div>
