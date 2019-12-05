@@ -10,12 +10,14 @@ import { Helmet } from "react-helmet"
 import { Technologies } from "../components/landing-page/technologies"
 import { Portfolio } from "../components/landing-page/portfolio"
 import { Leadership } from "../components/landing-page/leadership"
+import { ContactUs } from "../components/landing-page/contactUs"
 
 const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
   return (
     <div>
       <Helmet>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+        <script src="js/scroll-local-path.js" />
       </Helmet>
       <LandingHeader></LandingHeader>
       <Clients></Clients>
@@ -25,11 +27,14 @@ const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
       <div id="technologies">
         <Technologies></Technologies>
       </div>
-      <div id="#portfolio">
+      <div id="portfolio">
         <Portfolio></Portfolio>
       </div>
-      <div id="#leadership">
+      <div id="leadership">
         <Leadership></Leadership>
+      </div>
+      <div id='contactUs'>
+        <ContactUs></ContactUs>
       </div>
       <Menu></Menu>
       <div>colo</div>

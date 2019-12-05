@@ -82,7 +82,7 @@ export const Testimonials = () => {
       </div>
     </div>
     <div className='centered'>
-        <div className='button centered'> {buttonText} </div>
+        <div className='button centered'> <a href='#contactUs' style={{textDecoration:'none'}} >  {buttonText}  </a> </div>
       </div>
     <style jsx>{`
       .quote-icon-wrapper{
