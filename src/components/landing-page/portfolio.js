@@ -2,12 +2,23 @@ import React from "react"
 import { SectionHeader } from "./sectionHeader"
 import { useStaticQuery, graphql } from "gatsby"
 
+const ProjectImg = ({ src }) => (<div className='wrapper centered'>
+    <img className='img' src={src} alt='project-img'></img>
+    <style jsx>{`
+      .img{
+        margin-left:7px;
+        margin-top:20px;
+      }
+      .wrapper{
+        margin-left:68px;
+        margin-right:68px;
+      }
+    `}</style>
+</div>)
+
 const Project = ({ orientation, numberedImage, project, description, projectImage }) => (<div className='centered'>
   <div className='wrapper horizontal'>
-    {orientation === 'right' &&
-      <div className='img'>
-        <img  src={projectImage.sourceUrl} alt='project-img'></img>
-      </div>}
+    {orientation === 'right' &&  <ProjectImg src={projectImage.sourceUrl}></ProjectImg>}
     <div className='project-description'>
       <div className='number-img'>
         <img src={numberedImage.sourceUrl}></img>
@@ -16,14 +27,9 @@ const Project = ({ orientation, numberedImage, project, description, projectImag
         {project}
       </div>
       <div className='underline'></div>
-      <div className='content'>
-        {description}
-      </div>
+      <div className='content' dangerouslySetInnerHTML={{__html:description}}></div>
     </div>
-    {orientation === 'left' &&
-      <div className='img'>
-        <img  src={projectImage.sourceUrl} alt='project-img'></img>
-      </div>}
+    {orientation === 'left' && <ProjectImg src={projectImage.sourceUrl}></ProjectImg>} 
   </div>
   <style jsx>{`
     .number-img{
@@ -33,7 +39,7 @@ const Project = ({ orientation, numberedImage, project, description, projectImag
       margin-left:-16px;
     }
     .wrapper{
-      margin-top:53px;
+      margin-top:125px;
       margin-left:${orientation === 'left'?'100px;':'-100px'};
     }
     .underline{
@@ -97,10 +103,15 @@ export const Portfolio = () => {
     <div className='section-header'>
       <SectionHeader name="Portfolio" title="Most Recent Work"></SectionHeader>
     </div>
-    {mostRecentWork.map((project, index) => (<div key={index}>
-      <Project {...project} orientation={index%2 === 0? 'left': 'right'} />
-    </div>))}
+    <div className='projects'>
+      {mostRecentWork.map((project, index) => (<div key={index}>
+        <Project {...project} orientation={index%2 === 0? 'left': 'right'} />
+      </div>))}
+    </div>
     <style jsx>{`
+      .projects{
+        margin-top:-74px;
+      }
       .section-header{
         margin-top:89px;
       }

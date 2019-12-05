@@ -27,6 +27,7 @@ export const SectionHeader  = ({name, title, color}) => (<div className='centere
       color: ${color? color : '#071638'};
     }
     .title{
+      width:668px;
       font-family: DM Serif Text;
       font-size: 48px;
       line-height: 1.65;
