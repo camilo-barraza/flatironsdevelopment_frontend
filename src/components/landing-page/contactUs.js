@@ -6,6 +6,7 @@ import * as Yup from 'yup'
 import TextArea from '../utils/TextArea'
 import TextField from '../utils/TextField'
 import Spinner from '../utils/spinner'
+import { useStaticQuery, graphql } from "gatsby"
 import config from '../../config'
 import axios from 'axios'
 
@@ -23,16 +24,10 @@ let ContactUsSchema = Yup.object().shape({
 
 var sleep = n => new Promise(resolve => setTimeout(resolve, n))
 
-class Form extends Component {
-  constructor(props) {
-    super(props)  
-    this.state = {
-      loading:false
-    }
-  }
-  render() {
+const Form = ({ onSubmit, onDisplaySentMessage }) => {
+    const [loading, setLoading] = useState(false);
     return (<div className='wrapper'>
-      {this.state.loading &&
+      {loading &&
         <div className='spinner-wrapper centered'> 
           <div className='spinner'>
             <Spinner></Spinner>
@@ -46,7 +41,7 @@ class Form extends Component {
           }}
           validationSchema={ContactUsSchema}
           onSubmit={async (values, { setSubmitting }) => {
-            this.setState({loading:true}) 
+            setLoading(true)
             try{
               await axios.post(`${config.backendUrl}/wp-json/fl/v1/contact-us`, {
                 name: values.name,
@@ -56,13 +51,13 @@ class Form extends Component {
             }
             catch(err){
               alert('An error has occurred, please try again later');
-              this.setState({loading:false})
+              setLoading(false)
               throw 'Error'
             }
-            this.props.onSubmit()
+            onSubmit()
             await sleep(10)
-            this.setState({loading:false})
-            this.props.onDisplaySentMessage()
+            setLoading(false)
+            onDisplaySentMessage()
           }}
         >
         {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
@@ -113,7 +108,7 @@ class Form extends Component {
       </Formik> 
       <style jsx>{`
         .wrapper{
-          opacity: ${this.state.loading? '0.4' :'1' };
+          opacity: ${loading? '0.4' :'1' };
         }
         .spinner-wrapper{
           background-color: red;
@@ -172,14 +167,31 @@ class Form extends Component {
         }
       `}</style>
     </div>)
-  }
 }
 
 
 
 export const ContactUs = () => {
+  let { fl: { pages: { nodes:[ { pageContent:{ contactUs:{ content }} } ] } }  } = useStaticQuery(
+    graphql`
+    query ContactUs {
+      fl{
+        pages(where:{title:"Landing"}){
+           nodes{
+            title
+            pageContent{
+               contactUs{
+                content
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
   const [submittedForm, setSubmittedForm] = useState(false);
   const [displaySentMessage, setDisplaySentMessage] = useState(false);
+  console.log(content)
   return (<div className='wrapper centered'>
     <div className='container centered' >
       <div >
@@ -187,9 +199,8 @@ export const ContactUs = () => {
         <div className='title'>
           Let’s work togehter!
         </div>
-        <div className='message'>
-          We would love to chat about your project. Shoot us an email at <span style={{fontWeight:'600'}} >info@flatironsdevelopment.com</span> or fill out this form, and we will get back to you as soon as possible.
-        </div>
+        <div className='contact-us-message' dangerouslySetInnerHTML={{__html:content}} ></div>
+          {/* We would love to chat about your project. Shoot us an email at <span style={{fontWeight:'600'}} >info@flatironsdevelopment.com</span> or fill out this form, and we will get back to you as soon as possible. */}
         <div className='centered'>
           <div className='form'>
             {submittedForm && <div className={`email-sent ${displaySentMessage? 'fade-in':''}`}>
@@ -251,13 +262,13 @@ export const ContactUs = () => {
         text-align: center;
         color: #ffffff;
       }
-      .message{
+      .contact-us-message{
         margin-top:9px;
         width:870px;
         font-family: Montserrat;
         font-size: 18px;
         font-weight: 200;
-        line-height: 1.83;
+        line-height: 1.9;
         text-align: center;
         color: #d2e8ff;
       }

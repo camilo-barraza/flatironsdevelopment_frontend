@@ -39,6 +39,10 @@ body{
   flex-wrap:wrap;
 }
 
+.contact-us-message strong{
+  font-weight: 600;
+}
+
 .centered {
   display: flex ;
   align-items: center ;
