@@ -109,6 +109,7 @@ const Form = ({ onSubmit, onDisplaySentMessage }) => {
       <style jsx>{`
         .wrapper{
           opacity: ${loading? '0.4' :'1' };
+          pointer-events: ${loading? 'none' :'' };
         }
         .spinner-wrapper{
           background-color: red;
