@@ -1,9 +1,86 @@
-import React from 'react'
+import React, { Component } from 'react'
 import backgroundImg from './assets/background-footer.svg'
 import logoImg from './assets/logo.svg'
-import { useStaticQuery, graphql } from "gatsby"
+import { Formik } from 'formik'
+import * as Yup from 'yup'
+import TextArea from '../utils/TextArea'
 
-export const ContactUs = (props) => (<div className='wrapper centered'>
+class Form extends Component {
+  validateForm (values) {
+    return {}
+  }
+
+  render() {
+    return (<div>
+       <Formik
+          initialValues={{
+            message:''
+          }}
+          validate={this.validateForm.bind(this)}
+          onSubmit={async (values, { setSubmitting }) => {
+            console.log(values)
+          }}
+        >
+        {({ values, errors, touched, handleChange, handleBlur, handleSubmit, 
+          setFieldValue, setFieldTouched, isSubmitting }) => (
+          <form onSubmit={handleSubmit}>
+            <div className='message'>
+              <TextArea 
+                name='message'
+                errorMsg={errors.message}
+                touched={touched.message}
+                onChange={handleChange}
+                onBlur={handleBlur} 
+                width='75%' 
+                type='text' 
+                value={values.message}
+                label='How can we Help you?' />
+            </div>
+            <div >
+              <div className='centered' >
+                <button className='button centered'> Send </button>
+              </div>
+            </div>
+          </form>
+          )}
+      </Formik> 
+      <style jsx>{`
+        .button{
+          width:100%;
+          height:100%;
+        }
+        button{
+          outline:none;
+          border:none;
+        }
+        .message{
+          margin-top:50px;
+        }
+        .button:hover, .button:focus{
+          cursor:pointer;
+          background-color:#e6bd32 !important;
+          box-shadow: 0 2px 10px 0 rgba(25, 38, 53, 0.3);
+          transition: background-color 250ms linear;
+        }
+        .button{
+          width: 144px;
+          height: 60px;
+          border-radius: 6px;
+          box-shadow: 0 2px 40px 0 rgba(7, 22, 56, 0);
+          background-color: #d0a617;
+          font-family: Montserrat;
+          font-size: 18px;
+          font-weight: 600;
+          text-align: center;
+          color: #ffffff;
+          transition: background-color 250ms linear;
+        }
+      `}</style>
+    </div>)
+  }
+}
+
+export const ContactUs = () => (<div className='wrapper centered'>
   <div className='container centered' >
     <div >
       <img className='logo' src={logoImg} alt='logo'></img>
@@ -15,6 +92,7 @@ export const ContactUs = (props) => (<div className='wrapper centered'>
       </div>
       <div className='centered'>
         <div className='form'>
+          <Form></Form>
         </div>
       </div>
     </div>

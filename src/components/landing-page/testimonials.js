@@ -82,11 +82,18 @@ export const Testimonials = () => {
       </div>
     </div>
     <div className='centered'>
-        <div className='button centered'> <a href='#contactUs' style={{textDecoration:'none'}} >  {buttonText}  </a> </div>
+        <button className='button centered'> <a href='#contactUs' style={{textDecoration:'none'}} >  {buttonText}  </a> </button>
       </div>
     <style jsx>{`
       .quote-icon-wrapper{
         height:0px;
+      }
+      button{
+        outline:none;
+        border:none;
+      }
+      a{
+        outline:none;
       }
       .quote-icon{
         width: 729px;
@@ -105,7 +112,7 @@ export const Testimonials = () => {
         -moz-transition: opacity .5s ease-in-out;
         -webkit-transition: opacity .5s ease-in-out;
       }
-      .button:hover{
+      .button:hover, .button:focus{
         cursor:pointer;
         background-color:#3869d2 !important;
         box-shadow: 0 2px 10px 0 rgba(25, 38, 53, 0.3);

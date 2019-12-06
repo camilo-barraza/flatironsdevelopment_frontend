@@ -33,18 +33,25 @@ export const LandingHeader = () => {
         </div>
       </div>
       <div className='centered'>
-        <div className='button centered'> <a href='#contactUs' style={{textDecoration:'none'}} >  {header.buttonText}  </a></div>
+        <button className='button centered'> <a href='#contactUs' style={{textDecoration:'none'}} >  {header.buttonText}  </a></button>
       </div>
     </div>
     <style jsx>{`
       .header{
         margin-top:-10px;
       }
-      .button:hover{
+      a{
+        outline:none;
+      }
+      .button:hover, .button:focus{
         cursor:pointer;
         background-color:#e6bd32 !important;
         box-shadow: 0 2px 10px 0 rgba(25, 38, 53, 0.3);
         transition: background-color 250ms linear;
+      }
+      button{
+        outline:none;
+        border:none;
       }
       .button{
         width: 270px;
