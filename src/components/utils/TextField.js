@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import theme from '../../styles/theme'
 
-export default class TextArea extends Component {
+export default class TextField extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -33,12 +33,10 @@ export default class TextArea extends Component {
   render() {
     return (<div className={`centered-vertical ${this.props.disabled? 'disabled' : ''}`} >
       <div className='wrapper' >
-        <div className='textarea'>
-          <div className={`text-area-wrapper ${this.state.focused || this.props.value ? 'focused' : ''} `}    >
-            <label onClick={this.setFocus.bind(this)} 
-              className='text-area-label' data-test='text-area-label'> {this.props.label ? this.props.label : 'label'} 
-            </label>
-            <textarea rows='4' ref={this.myRef}
+        <div className='textfield'>
+          <div className={`text-field-wrapper ${this.state.focused || this.props.value ? 'focused' : ''} `}    >
+            <input ref={this.myRef}
+              placeholder={this.props.placeholder}
               disabled={this.props.disabled? true: false}
               required={this.props.required}
               onFocus={() => { this.setState({ focused: true }) }}
@@ -78,22 +76,38 @@ export default class TextArea extends Component {
         font-size: 12px;
         color: ${theme.info};
       }
-      textarea{
+      input:hover{
+        cursor:text;
+      }
+      input{
         padding-right:12px;
         line-height: 1.67;
       }
-      textarea:hover{
-        cursor:text;
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus textarea:-webkit-autofill,
+      textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+      select:-webkit-autofill,
+      select:-webkit-autofill:hover,
+      select:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0px 1000px #f9fafbff inset !important;
       }
-      .textarea{
+
+      input {
+        outline:none;
+        text-decoration:none;
+        -webkit-appearance: none; 
+        box-shadow: none !important;
+      }
+      .textfield{
         background-color: #f9fafbff;
-        padding:30px 14px 5px 14px;
+        padding:10px 16px 8px 16px;
         border-radius: 5px 5px 0 0;
         border-bottom: 1px solid ${theme.input.border};
       }
-      .textarea:hover{
+      .textfield:hover{
         border-bottom: 1px solid ${theme.primary};
-        cursor:text;
       }
       .error-msg{
         color: ${theme.errorMsg};
@@ -107,24 +121,21 @@ export default class TextArea extends Component {
         position: auto;
         width: ${this.props.width ? this.props.width : '400px'};
       }
-      textarea:hover{
-        cursor:text;
-      }
-      .text-area-wrapper {
+      .text-field-wrapper {
         position:relative;  
       }
       label{
         user-select: none;
         font-size: 18px;
       }
-      .text-area-label {
+      .text-field-label {
         position: absolute;
         top:-15px;
         left: 2px;
         color: ${this.props.errorMsg && this.props.touched? theme.errorMsg : theme.input.labelPlaceHolder};
         z-index: 10;
         font-size: 18px;
-        font-family:Montserrat;
+        font-family: Montserrat;
         transition: transform 150ms ease-out, font-size 150ms ease-out;
       }
       .input-field {
@@ -139,15 +150,9 @@ export default class TextArea extends Component {
         font-size: 18px;
         color: #4f5769;
       }
-      .focused .text-area-label {
+      .focused .text-field-label {
         transform: translateY(-25%) translateX(-13%) scale(0.75);
         color: ${this.props.errorMsg && this.props.touched? theme.errorMsg : theme.input.label};
-      }
-      textarea::-webkit-scrollbar {
-        cursor: pointer;
-        width: 5px;
-        margin-right:80px;
-        background-color: #F5F5F5; 
       }
 
       label:hover{
@@ -166,8 +171,8 @@ export default class TextArea extends Component {
       }
       .input-field ~ .focus-border{
         position: absolute; 
-        bottom: -6px; 
-        left: -14px;
+        bottom: -9px; 
+        left: -16px;
         width: 0; 
         height: 2px; 
         background-color: ${theme.primary}; 
@@ -175,23 +180,23 @@ export default class TextArea extends Component {
       }
       .error {
         position: absolute; 
-        bottom: -6px; 
-        left: -14px;
-        width: 109%;
+        bottom: -9px; 
+        left: -16px;
+        width: 110.4%;
         height: 1px;
         background-color: ${theme.errorMsg}; 
         border-right:solid 28px ${theme.errorMsg}; 
         transition: 0.15s;
       }
       .input-field:focus ~ .focus-border{
-        width: 109%;
+        width: 110.4%;
         border-right:solid 28px ${theme.primary}; 
         transition: 0.12s;
       }
-      textarea:-webkit-autofill,
-      textarea:-webkit-autofill:hover, 
-      textarea:-webkit-autofill:focus, 
-      textarea:-webkit-autofill:active  {
+      textfield:-webkit-autofill,
+      textfield:-webkit-autofill:hover, 
+      textfield:-webkit-autofill:focus, 
+      textfield:-webkit-autofill:active  {
         -webkit-box-shadow: 0 0 0 30px white inset !important;
       }
     `}</style>

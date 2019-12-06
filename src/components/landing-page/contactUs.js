@@ -4,26 +4,63 @@ import logoImg from './assets/logo.svg'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 import TextArea from '../utils/TextArea'
+import TextField from '../utils/TextField'
+
+let ContactUsSchema = Yup.object().shape({ 
+  name: Yup.string()
+    .min(1, 'Too Short!')
+    .required('Required'),
+  email: Yup.string()
+    .min(1, 'Too Short!')
+    .required('Required'),
+  message: Yup.string()
+    .min(5, 'Too Short!')
+    .required('Required')
+})
+
+var sleep = n => new Promise(resolve => setTimeout(resolve, n))
 
 class Form extends Component {
-  validateForm (values) {
-    return {}
-  }
-
   render() {
     return (<div>
        <Formik
           initialValues={{
+            name:'',
             message:''
           }}
-          validate={this.validateForm.bind(this)}
+          validationSchema={ContactUsSchema}
           onSubmit={async (values, { setSubmitting }) => {
+            await sleep(1000)
             console.log(values)
           }}
         >
         {({ values, errors, touched, handleChange, handleBlur, handleSubmit, 
           setFieldValue, setFieldTouched, isSubmitting }) => (
           <form onSubmit={handleSubmit}>
+            <div className='name'>
+              <TextField 
+                name='name'
+                errorMsg={errors.name}
+                touched={touched.name}
+                onChange={handleChange}
+                onBlur={handleBlur} 
+                width='78%' 
+                type='text' 
+                value={values.name}
+                placeholder='Your Name' />
+            </div>
+            <div className='email'>
+              <TextField 
+                name='email'
+                errorMsg={errors.email}
+                touched={touched.email}
+                onChange={handleChange}
+                onBlur={handleBlur} 
+                width='78%' 
+                type='text' 
+                value={values.email}
+                placeholder='Work Email' />
+            </div>
             <div className='message'>
               <TextArea 
                 name='message'
@@ -31,21 +68,30 @@ class Form extends Component {
                 touched={touched.message}
                 onChange={handleChange}
                 onBlur={handleBlur} 
-                width='75%' 
+                width='78%' 
                 type='text' 
                 value={values.message}
                 label='How can we Help you?' />
             </div>
             <div >
               <div className='centered' >
-                <button className='button centered'> Send </button>
+                <button className={`button centered ${isSubmitting? 'button-disabled':''}`} disabled={isSubmitting} > Send </button>
               </div>
             </div>
           </form>
           )}
       </Formik> 
       <style jsx>{`
+        .button-disabled{
+          opacity:0.4;
+        }
         .button{
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
           width:100%;
           height:100%;
         }
@@ -53,8 +99,15 @@ class Form extends Component {
           outline:none;
           border:none;
         }
+        .name{
+          margin-top:60px;
+        }
+        .email{
+          margin-top:15px;
+        }
         .message{
-          margin-top:50px;
+          margin-top:15px;
+          margin-bottom:20px;
         }
         .button:hover, .button:focus{
           cursor:pointer;
@@ -121,11 +174,11 @@ export const ContactUs = () => (<div className='wrapper centered'>
     .form{
       margin-top:60px;
       width: 452px;
-      height: 501px;
       border-radius: 5px;
       box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.06);
       background-color: #ffffff;
       margin-bottom:74px;
+      padding-bottom:35px;
     }
 
     .wrapper:before {

@@ -50,6 +50,12 @@ export const LandingHeader = () => {
         transition: background-color 250ms linear;
       }
       button{
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
         outline:none;
         border:none;
       }
