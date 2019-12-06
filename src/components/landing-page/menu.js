@@ -70,6 +70,12 @@ export const Menu = () => {
         .container{
           margin-top:12vw !important;
         }
+        .mobile-menu{
+          margin-right:-2%;
+        }
+        .mobile-logo{
+          margin-left:4% !important;
+        }
         .mobile-logo img{
           height:24px !important;
         }
@@ -77,12 +83,13 @@ export const Menu = () => {
       
       .mobile-menu{
         display:none;
+        font-weight:500;
       }
       .desktop-logo{
-        margin-left:15px;
+        margin-left:1%;
       }
       .mobile-logo{
-        margin-left:15px;
+        margin-left:1%;
         margin-top:-10px;
         display:none;
       }
