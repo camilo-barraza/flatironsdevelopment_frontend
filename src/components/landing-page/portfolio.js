@@ -101,18 +101,23 @@ export const Portfolio = () => {
       }
     }
   `)
-  return (<div className='wrapper'>
-    <div className='section-header'>
-      <SectionHeader name="Portfolio" title="Most Recent Work"></SectionHeader>
-    </div>
-    <div className='projects'>
-      {mostRecentWork.map((project, index) => (<div key={index}>
-        <Project {...project} orientation={index%2 === 0? 'left': 'right'} />
-      </div>))}
+  return (<div className='wrapper centered'>
+    <div className='container'>
+      <div className='section-header'>
+        <SectionHeader name="Portfolio" title="Most Recent Work"></SectionHeader>
+      </div>
+      <div className='projects'>
+        {mostRecentWork.map((project, index) => (<div key={index}>
+          <Project {...project} orientation={index%2 === 0? 'left': 'right'} />
+        </div>))}
+      </div>
     </div>
     <style jsx>{`
       .projects{
         margin-top:-74px;
+      }
+      .container{
+        max-width:1200px;
       }
       .section-header{
         margin-top:89px;

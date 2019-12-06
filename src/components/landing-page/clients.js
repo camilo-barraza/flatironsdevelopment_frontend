@@ -53,8 +53,7 @@ export const Clients = () => (<div id="clients" className='wrapper centered'>
     }
     .card{
       margin:0 4.5% 0 4.5%;
-      background-color: blue;
-      width: 1091px;
+      max-width: 1120px;
       padding: 0 0 18px 0;
       border-radius: 5px;
       -webkit-backdrop-filter: blur(18px);

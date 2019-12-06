@@ -70,6 +70,7 @@ export const Technologies = () => {
         width:1200px;
         margin-top:89px;
         padding-bottom:187px;
+        max-width:1160px;
       }
       .wrapper{
         padding-top:120px;
