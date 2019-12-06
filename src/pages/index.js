@@ -19,8 +19,12 @@ const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
         <script src="js/scroll-local-path.js" />
       </Helmet>
-      <LandingHeader></LandingHeader>
-      <Clients></Clients>
+      <div id='mission'>
+        <LandingHeader></LandingHeader>
+      </div>
+      <div id='work'>
+        <Clients></Clients>
+      </div>
       <div id="testimonials">
         <Testimonials></Testimonials>
       </div>

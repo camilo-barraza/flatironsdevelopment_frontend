@@ -5,7 +5,7 @@ import { Formik } from 'formik'
 import * as Yup from 'yup'
 import TextArea from '../utils/TextArea'
 import TextField from '../utils/TextField'
-import Spinner from '../utils/spinner'
+import Spinner from '../utils/Spinner'
 import { useStaticQuery, graphql } from "gatsby"
 import config from '../../config'
 import axios from 'axios'
