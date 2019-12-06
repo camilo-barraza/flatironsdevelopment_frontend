@@ -121,8 +121,8 @@ export const LandingHeader = () => {
         .wrapper:after{
           left:-30% !important;
           width: 150% !important;
-          -webkit-transform: rotate(-5deg) !important;
-          transform: rotate(-5deg) !important;
+          -webkit-transform: rotate(-6deg) !important;
+          transform: rotate(-6deg) !important;
           background-position: 100% center !important;
         }
       }
