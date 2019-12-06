@@ -1,15 +1,17 @@
 import React from "react"
 
 export const SectionHeader  = ({name, title, color}) => (<div className='centered'>
-  <div >
-    <div className='sectionName'>
+  <div className='container'>
+    <div className='section-name'>
       {name.toUpperCase()}
     </div>
     <div className='centered'>
       <div className='underline'></div>
     </div>
-    <div className='title'>
-      {title}
+    <div className='centered'>
+      <div className='title'>
+        {title}
+      </div>
     </div>
   </div>
   <style jsx>{`
@@ -18,7 +20,7 @@ export const SectionHeader  = ({name, title, color}) => (<div className='centere
       height: 1px;
       border: solid 1px #d0a617;
     }
-    .sectionName{
+    .section-name{
       margin-bottom: 5px;
       font-family: Montserrat;
       font-size: 14px;
@@ -26,12 +28,37 @@ export const SectionHeader  = ({name, title, color}) => (<div className='centere
       text-align: center;
       color: ${color? color : '#071638'};
     }
+    @media all and (max-width: 900px) {
+      .title{
+        margin-top: 2vw !important;
+        font-size:38px !important;
+      }
+    }
+    
+    @media all and (max-width: 500px) {
+      .title{
+        margin-top:20px !important;
+        font-size: 32px !important;
+        line-height:1.44 !important;
+      }
+      .section-name{
+        font-size:12px !important;
+      }
+      .title{
+        max-width:668px !important;
+      }
+    }
+    .container{
+      width:100%;
+    }
+
     .title{
-      width:668px;
+      margin:0 13% 0 13%;
       font-family: DM Serif Text;
       font-size: 48px;
       line-height: 1.65;
       text-align: center;
+      max-width:800px;
       color: ${color? color : '#071638'}
     }
   `}</style>

@@ -36,57 +36,73 @@ export const Testimonials = () => {
   const [animation, setAnimation] = useState('fade-in')
   const [selectedTestimonial, setSelectedTestimonial] = useState(0);
   let data = testimonials[selectedTestimonial]
-  return (<div className='wrapper'>
-    <div className='section-header'>
-      <SectionHeader name="Our Clients" title="What they think of us "></SectionHeader>
-      <div className='quote-icon-wrapper centered'>
-        <div className='quote-icon'>
-          <img className='quote-img' src={quoteImg} alt='quote' />
-        </div>
-      </div>
-      <div className={`quote ${animation}`}>
-        <div className='content-wrapper centered'>
-          <div className='content'>
-            “{data.content}”
+  return (<div className='wrapper centered'>
+    <div className='container'>
+      <div className='section-header'>
+        <SectionHeader name="Our Clients" title="What they think of us "></SectionHeader>
+        <div className='quote-icon-wrapper centered'>
+          <div className='quote-icon'>
+            <img className='quote-img' src={quoteImg} alt='quote' />
           </div>
         </div>
-        <div className='author-wrapper centered'>
-          <div className='author-info horizontal'>
-            <img alt="pic" src={data.authorImage.sourceUrl}></img>
-            <div style={{marginLeft:'12px'}}>
-              <div className='author-name'>
-                {data.author}
-              </div>            
-              <div className='author-role' >
-                {data.authorRole}
+        <div className={`quote ${animation}`}>
+          <div className='content-wrapper centered'>
+            <div className='content'>
+              “{data.content}”
+            </div>
+          </div>
+          <div className='author-wrapper'>
+            <div className='author-info horizontal'>
+              <img className='author-image' alt="pic" src={data.authorImage.sourceUrl}></img>
+              <div style={{marginLeft:'12px'}}>
+                <div className='author-name'>
+                  {data.author}
+                </div>            
+                <div className='author-role' >
+                  {data.authorRole}
+                </div>
+              </div>
+              <div className='company-info'>
+                <div style={{visibility:'hidden'}}>t</div>
+                <div className='company-logo desktop-logo' >
+                  <img alt="logo" src={data.companyLogo.sourceUrl}/>
+                </div>
               </div>
             </div>
-            <div className='company-info'>
-              <div style={{visibility:'hidden'}}>t</div>
-              <div className='company-logo' >
-                <img alt="logo" src={data.companyLogo.sourceUrl}/>
-              </div>
+            <div className='company-logo mobile-logo' >
+              <img alt="logo" src={data.companyLogo.sourceUrl}/>
             </div>
           </div>
         </div>
+        <div className='selectors centered'>
+          {testimonials.map((t, index) => (<div key={index}>
+            <a href='#testimonials'>
+              <div onClick={async () => {
+                setSelectedTestimonial(index)
+                setAnimation('hidden')
+                await sleep(150)
+                setAnimation('fade-in')
+              }} className={`selector ${selectedTestimonial === index ? 'selected':''}`}></div>
+            </a>
+          </div>))}
+        </div>
       </div>
-      <div className='selectors centered'>
-        {testimonials.map((t, index) => (<div key={index}>
-          <div onClick={async () => {
-            setSelectedTestimonial(index)
-            setAnimation('hidden')
-            await sleep(150)
-            setAnimation('fade-in')
-          }} className={`selector ${selectedTestimonial === index ? 'selected':''}`}></div>
-        </div>))}
-      </div>
-    </div>
-    <div className='centered'>
+      <div className='centered'>
         <button className='button centered'> <a href='#contact' style={{textDecoration:'none'}} >  {buttonText}  </a> </button>
       </div>
+    </div>
     <style jsx>{`
+      .container{
+        margin:0 7% 0 9%;
+        max-width:729px;
+      }
       .quote-icon-wrapper{
         height:0px;
+      }
+      .mobile-logo{
+        display:none;
+        margin-left:64px;
+        margin-top:8px;
       }
       button{
         outline:none;
@@ -102,13 +118,12 @@ export const Testimonials = () => {
         outline:none;
       }
       .quote-icon{
-        width: 729px;
+        width: 100%;
         text-align:left;
         margin-left:-50px;
         margin-top:70px;
       }
       .author-info{
-        width: 729px;
         margin-top:20px;
         text-align:left;
       }
@@ -165,6 +180,8 @@ export const Testimonials = () => {
         background-color: #d0a617;
       }
       .author-name{
+        white-space: nowrap;
+        overflow: hidden;
         font-family: Montserrat;
         font-size: 18px;
         font-weight: 600;
@@ -172,6 +189,8 @@ export const Testimonials = () => {
       }
       .author-role{
         opacity: 0.62;
+        white-space: nowrap;
+        overflow: hidden;
         font-family: Montserrat;
         font-size: 18px;
         color: #2c3956;
@@ -180,13 +199,33 @@ export const Testimonials = () => {
         margin-top:32px;
       }
       .content{
-        width: 729px;
         text-align:left;
         font-family: Montserrat;
         font-size: 18px;
         line-height: 2.22;
-        color: rgba(7, 22, 56, 0.85);]
+        color: rgba(7, 22, 56, 0.85);
       }
+      .author-image{
+        height:49px;
+      }
+      @media all and (max-width: 500px) {
+        .mobile-logo{
+          display:flex;
+        }
+        .desktop-logo{
+          display:none;
+        }
+        .selectors{
+          margin-top:10%;
+        }
+        .section-header{
+          padding-top:20% !important;
+        }
+        .quote-icon{
+          margin-left: -10px !important;
+        }
+      }
+      
       .section-header{
         padding-top:110px;
       }
