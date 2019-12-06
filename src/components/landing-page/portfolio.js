@@ -8,6 +8,8 @@ const ProjectImg = ({ src }) => (<div className='wrapper centered'>
       .img{
         margin-left:7px;
         margin-top:20px;
+        -webkit-filter: drop-shadow(3px -3px 30px rgb(15, 122, 145, 0.09)); 
+        filter: drop-shadow(3px -3px 30px rgb(15, 122, 145, 0.09)); 
       }
       .wrapper{
         margin-left:68px;

@@ -9,7 +9,7 @@ export const Footer = () => {
       <div className='logo-wrapper centered'>
         <img draggable="false" src={logoImg} alt='logo'></img>
         <div className='copyright'>
-          ©2019
+          © 2019
         </div>
       </div>
       <div className='menu-wrapper centered'>
