@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { SectionHeader } from "./sectionHeader"
 import { useStaticQuery, graphql } from "gatsby"
 
 const Leader = ({profileImage, name, role, description}) => (<div className='wrapper horizontal'>
-  <img className='profile-img' src={profileImage.sourceUrl} width="137px" height= "137px"></img>
+  <img className='profile-img' alt='profile-img' src={profileImage.sourceUrl} width="137px" height= "137px"></img>
   <div className='leader-info'>
     <div className='name'>
       {name.toUpperCase()}

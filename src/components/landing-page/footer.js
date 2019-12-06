@@ -1,6 +1,5 @@
-import React, { useState }  from "react"
+import React  from "react"
 import logoImg from './assets/white-logo.svg'
-import { useStaticQuery, graphql } from "gatsby"
 import { useMenuItems } from "../../content-hooks/landing-page/useMenuItems"
 
 export const Footer = (props) => {

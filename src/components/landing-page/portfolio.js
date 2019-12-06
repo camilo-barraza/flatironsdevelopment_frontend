@@ -21,7 +21,7 @@ const Project = ({ orientation, numberedImage, project, description, projectImag
     {orientation === 'right' &&  <ProjectImg src={projectImage.sourceUrl}></ProjectImg>}
     <div className='project-description'>
       <div className='number-img'>
-        <img src={numberedImage.sourceUrl}></img>
+        <img alt='numbered-img' src={numberedImage.sourceUrl}></img>
       </div>
       <div className='title'>
         {project}

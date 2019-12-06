@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import backgroundImg from './assets/background-footer.svg'
 import logoImg from './assets/logo.svg'
 import { Formik } from 'formik'
@@ -40,7 +40,7 @@ const Form = ({ onSubmit, onDisplaySentMessage }) => {
             message:''
           }}
           validationSchema={ContactUsSchema}
-          onSubmit={async (values, { setSubmitting }) => {
+          onSubmit={async (values) => {
             setLoading(true)
             try{
               await axios.post(`${config.backendUrl}/wp-json/fl/v1/contact-us`, {
@@ -52,7 +52,7 @@ const Form = ({ onSubmit, onDisplaySentMessage }) => {
             catch(err){
               alert('An error has occurred, please try again later');
               setLoading(false)
-              throw 'Error'
+              throw err
             }
             onSubmit()
             await sleep(10)
