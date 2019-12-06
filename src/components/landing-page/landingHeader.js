@@ -33,7 +33,7 @@ export const LandingHeader = () => {
         </div>
       </div>
       <div className='centered'>
-        <button className='button centered'> <a href='#contactUs' style={{textDecoration:'none'}} >  {header.buttonText}  </a></button>
+        <button className='button centered'> <a href='#contact' style={{textDecoration:'none'}} >  {header.buttonText}  </a></button>
       </div>
     </div>
     <style jsx>{`

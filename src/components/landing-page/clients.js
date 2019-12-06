@@ -37,6 +37,9 @@ export const Clients = () => (<div id="clients" className='wrapper centered'>
     .clients{
       margin-top:38px;
     }
+    img{
+      margin-bottom:30px;
+    }
     .logo{
       padding: 0px 25px 0px 25px;
     }
@@ -52,7 +55,7 @@ export const Clients = () => (<div id="clients" className='wrapper centered'>
       margin:0 4.5% 0 4.5%;
       background-color: blue;
       width: 1091px;
-      padding: 0 0 15px 0;
+      padding: 0 0 18px 0;
       border-radius: 5px;
       -webkit-backdrop-filter: blur(18px);
       backdrop-filter: blur(18px);

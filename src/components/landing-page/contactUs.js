@@ -5,6 +5,7 @@ import { Formik } from 'formik'
 import * as Yup from 'yup'
 import TextArea from '../utils/TextArea'
 import TextField from '../utils/TextField'
+import Spinner from '../utils/spinner'
 
 let ContactUsSchema = Yup.object().shape({ 
   name: Yup.string()
@@ -21,8 +22,20 @@ let ContactUsSchema = Yup.object().shape({
 var sleep = n => new Promise(resolve => setTimeout(resolve, n))
 
 class Form extends Component {
+  constructor(props) {
+    super(props)  
+    this.state = {
+      loading:false
+    }
+  }
   render() {
-    return (<div>
+    return (<div className='wrapper'>
+      {this.state.loading &&
+        <div className='spinner-wrapper centered'> 
+          <div className='spinner'>
+            <Spinner></Spinner>
+          </div>
+        </div>}
        <Formik
           initialValues={{
             name:'',
@@ -31,9 +44,11 @@ class Form extends Component {
           }}
           validationSchema={ContactUsSchema}
           onSubmit={async (values, { setSubmitting }) => {
+            this.setState({loading:true}) 
             await sleep(1000)
             this.props.onSubmit()
             await sleep(10)
+            this.setState({loading:false})
             this.props.onDisplaySentMessage()
             console.log(values)
           }}
@@ -78,13 +93,25 @@ class Form extends Component {
             </div>
             <div >
               <div className='centered' >
-                <button className={`button centered ${isSubmitting? 'button-disabled':''}`} disabled={isSubmitting} > Send </button>
+                <button className='button centered' disabled={isSubmitting} > Send </button>
               </div>
             </div>
           </form>
           )}
       </Formik> 
       <style jsx>{`
+        .wrapper{
+          opacity: ${this.state.loading? '0.4' :'1' };
+        }
+        .spinner-wrapper{
+          background-color: red;
+          width:100%;
+        }
+        .spinner{
+          margin-top:150px;
+          opacity:0.5;
+          position:absolute;
+        }
         .button-disabled{
           opacity:0.4;
         }
@@ -144,7 +171,7 @@ export const ContactUs = () => {
   return (<div className='wrapper centered'>
     <div className='container centered' >
       <div >
-        <img className='logo' src={logoImg} alt='logo'></img>
+        <img className='logo' draggable="false" src={logoImg} alt='logo'></img>
         <div className='title'>
           Let’s work togehter!
         </div>
@@ -163,14 +190,19 @@ export const ContactUs = () => {
                 </div>
               </div>
             </div>}
-            <div style={{opacity:`${submittedForm? 0:1}`}}>
-              <Form onSubmit={()=> setSubmittedForm(true)} onDisplaySentMessage={()=> setDisplaySentMessage(true)} />
+            <div className={`${submittedForm? 'hidden-fields':''}`}>
+              <Form onSubmit={()=> setSubmittedForm(true)}
+                onDisplaySentMessage={()=> setDisplaySentMessage(true)} />
             </div>
           </div>
         </div>
       </div>
     </div>
     <style jsx>{`
+      .hidden-fields{
+        opacity:0;
+        pointer-events:none;
+      }
       .sent-msg{
         margin-top:10px;
         font-family: Montserrat;
@@ -182,9 +214,9 @@ export const ContactUs = () => {
       }
       .fade-in{
         opacity: 1 !important;
-        transition: opacity 1.5s ease-in-out;
-        -moz-transition: opacity 1.5s ease-in-out;
-        -webkit-transition: opacity 1.5s ease-in-out;
+        transition: opacity 1s ease-in-out;
+        -moz-transition: opacity 1s ease-in-out;
+        -webkit-transition: opacity 1s ease-in-out;
       }
       .email-sent{
         opacity:0;

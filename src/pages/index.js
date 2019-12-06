@@ -11,10 +11,12 @@ import { Technologies } from "../components/landing-page/technologies"
 import { Portfolio } from "../components/landing-page/portfolio"
 import { Leadership } from "../components/landing-page/leadership"
 import { ContactUs } from "../components/landing-page/contactUs"
+import { Footer } from "../components/landing-page/footer"
 
 const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
   return (
     <div>
+      <SEO title="Home" />
       <Helmet>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
         <script src="js/scroll-local-path.js" />
@@ -33,27 +35,10 @@ const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
       <div id="leadership">
         <Leadership></Leadership>
       </div>
-      <div id='contactUs'>
+      <div id='contact'>
         <ContactUs></ContactUs>
       </div>
-      <Menu></Menu>
-      <div>colo</div>
-      <SEO title="Home" />
-      <div style={{backgroundColor:'blue'}}>
-        <h1 className='header'>Build Better Products.</h1>
-        <p className='test'>Welcome  fdas to your new Gatsby site.</p>
-        <div className='subheader'>
-          We build beautiful consumer facing software that improves business metrics.
-        </div>
-        {blogPosts.map((post, index) => (<div key={index}>
-          {post.node.title}
-        </div>))}
-        <p>Now go build something great.</p>
-        <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-          <Image />
-        </div>
-        <Link to="/page-2/">Go to page 2</Link>
-      </div>
+      <Footer></Footer>
       <style jsx>{`
         .header{
           width: 816px;
