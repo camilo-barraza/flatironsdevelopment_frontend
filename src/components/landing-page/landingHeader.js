@@ -39,6 +39,7 @@ export const LandingHeader = () => {
     <style jsx>{`
       .header{
         margin-top:-10px;
+        width:100%;
       }
       a{
         outline:none;
@@ -72,6 +73,60 @@ export const LandingHeader = () => {
         color: #ffffff;
         transition: background-color 250ms linear;
       }
+      @media all and (max-width: 900px) {
+        .wrapper:after{
+          left:-9% !important;
+          -webkit-transform: rotate(-4.5deg) !important;
+          transform: rotate(-4.5deg) !important;
+          background-position: 100% center !important;
+        }
+        .content{
+          font-size:60px !important;
+        }
+        .subheader{
+          font-size:22px !important;
+        }
+      }
+      @media all and (max-width: 760px) {
+        .content{
+          font-size:55px !important;
+        }
+        .subheader{
+          font-size:21px !important;
+          font-weight:500 !important;
+        }
+        .wrapper:after{
+          left:-20% !important;
+          width: 130% !important;
+          -webkit-transform: rotate(-5deg) !important;
+          transform: rotate(-5deg) !important;
+          background-position: 100% center !important;
+        }
+      }
+      @media all and (max-width: 500px) {
+        .wrapper{
+          height:190vw !important;
+        }
+        .content{
+          margin-top:0vw;
+          font-size:42px !important;
+          line-height: 1.18 !important;
+          margin-bottom: 32px !important;
+        }
+        .subheader{
+          font-size: 18px !important;
+          font-weight: 500 !important;
+          margin-bottom: 32px !important;
+        }
+        .wrapper:after{
+          left:-30% !important;
+          width: 150% !important;
+          -webkit-transform: rotate(-5deg) !important;
+          transform: rotate(-5deg) !important;
+          background-position: 100% center !important;
+        }
+      }
+      
       .wrapper{
         position:relative;
         width: 100%;
@@ -107,6 +162,8 @@ export const LandingHeader = () => {
         line-height: 1.15;
         text-align: center;
         color: #fefefe;
+        margin-right:10%;
+        margin-left:10%;
         margin-bottom:25px;
       }
       .subheader{
@@ -116,6 +173,8 @@ export const LandingHeader = () => {
         line-height: 1.46;
         text-align: center;
         color: #d0e9f8;
+        margin-right:10%;
+        margin-left:10%;
         margin-bottom:41px;
       }
     `}</style>  
