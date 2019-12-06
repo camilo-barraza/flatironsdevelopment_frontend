@@ -6,6 +6,8 @@ import * as Yup from 'yup'
 import TextArea from '../utils/TextArea'
 import TextField from '../utils/TextField'
 import Spinner from '../utils/spinner'
+import config from '../../config'
+import axios from 'axios'
 
 let ContactUsSchema = Yup.object().shape({ 
   name: Yup.string()
@@ -45,12 +47,22 @@ class Form extends Component {
           validationSchema={ContactUsSchema}
           onSubmit={async (values, { setSubmitting }) => {
             this.setState({loading:true}) 
-            await sleep(1000)
+            try{
+              await axios.post(`${config.backendUrl}/wp-json/fl/v1/contact-us`, {
+                name: values.name,
+                email: values.email,
+                message: values.message
+              })
+            }
+            catch(err){
+              alert('An error has occurred, please try again later');
+              this.setState({loading:false})
+              throw 'Error'
+            }
             this.props.onSubmit()
             await sleep(10)
             this.setState({loading:false})
             this.props.onDisplaySentMessage()
-            console.log(values)
           }}
         >
         {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
