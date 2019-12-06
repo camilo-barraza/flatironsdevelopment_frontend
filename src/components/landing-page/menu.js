@@ -1,16 +1,13 @@
-import React  from "react"
-import logoImg from './assets/white-logo.svg'
 import { useMenuItems } from "../../content-hooks/landing-page/useMenuItems"
-
-export const Footer = () => {
+import logoImg from './assets/white-logo.svg'
+import React  from "react"
+ 
+export const Menu = () => {
   let menuItems = useMenuItems('Landing Page')
   return (<div className='wrapper centered'>
     <div className='container space-between'>
       <div className='logo-wrapper centered'>
         <img draggable="false" src={logoImg} alt='logo'></img>
-        <div className='copyright'>
-          ©2019
-        </div>
       </div>
       <div className='menu-wrapper centered'>
         <div className='menu horizontal'>
@@ -33,7 +30,12 @@ export const Footer = () => {
         margin:0;
       }
       .container{
-        width:1200px;
+        margin-top:50px;
+        width:80%;
+        max-width:1300px;
+        pointer-events:all;
+        position:absolute;
+        z-index:100;
         padding:37px 0;
       }
       .copyright{
@@ -46,7 +48,6 @@ export const Footer = () => {
         color: rgba(255, 255, 255, 0.85);
       }
       .wrapper{
-        background-color: #2a52a9;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -khtml-user-select: none;
@@ -61,9 +62,6 @@ export const Footer = () => {
         font-weight: 500;
         color: #d0e9f8;
       }
-      .menu{
-
-      }
     `}</style>
   </div>)
-}
+} 

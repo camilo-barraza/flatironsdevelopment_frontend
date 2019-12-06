@@ -10,6 +10,7 @@ import { Portfolio } from "../components/landing-page/portfolio"
 import { Leadership } from "../components/landing-page/leadership"
 import { ContactUs } from "../components/landing-page/contactUs"
 import { Footer } from "../components/landing-page/footer"
+import { Menu } from "../components/landing-page/menu"
 
 const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
   return (
@@ -19,6 +20,7 @@ const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
         <script src="js/scroll-local-path.js" />
       </Helmet>
+      <Menu></Menu>
       <div id='mission'>
         <LandingHeader></LandingHeader>
       </div>
