@@ -24,21 +24,45 @@ const Tool = ({src, name}) => (<div className='wrapper centered'>
     .image{
       margin-top:17px;
       margin-bottom:15px;
+      height:54px;
+    }
+    img{
+      max-height:54px;
     }
     .name{
-      margin-top:10px;
+      white-space: nowrap;
+      overflow: hidden;
+      margin-top:35px;
       opacity: 0.8;
       font-family: Montserrat;
       font-size: 16px;
       font-weight: 600;
       color: #ffffff;
     }
+    @media all and (max-width: 400px) {
+      .name{
+        font-size:4.5vw;
+      }
+    }
+    
+    @media all and (max-width: 500px) {
+      .wrapper{
+        margin: 7px 7px !important;
+        width:44vw !important;
+        padding: 0 10px !important;
+      }
+      img{
+        height: 42px !important; 
+        max-height:42px !important;
+      }
+    }
+    
     .wrapper{
       width: 189px;
       height: 186px;
       border-radius: 5px;
       background-color: #1e3f84;
-      margin: 14px 21px;
+      margin: 14px 14px;
     }
   `}</style>
 </div>)
@@ -63,13 +87,22 @@ export const Technologies = () => {
       </div>
     </div>
     <style jsx>{`
-      .tool{
-        margin:14px 21px;
+      @media all and (max-width: 900px) {
+        .tools{
+          margin-top:49px !important;
+        }
+        .wrapper{
+          padding-top:74px !important;
+        }
+        .tools{
+          padding-bottom:78px !important;
+        }
       }
+      
       .tools{
-        width:1200px;
+        margin:0;
         margin-top:89px;
-        padding-bottom:187px;
+        padding-bottom:180px;
         max-width:1160px;
       }
       .wrapper{

@@ -45,6 +45,7 @@ export const SectionHeader  = ({name, title, color}) => (<div className='centere
         font-size:12px !important;
       }
       .title{
+        font-size:30px !important;
         max-width:668px !important;
       }
     }
