@@ -69,7 +69,7 @@ const Form = ({ onSubmit, onDisplaySentMessage }) => {
                 touched={touched.name}
                 onChange={handleChange}
                 onBlur={handleBlur} 
-                width='78%' 
+                width='100%' 
                 type='text' 
                 value={values.name}
                 placeholder='Your Name' />
@@ -81,7 +81,7 @@ const Form = ({ onSubmit, onDisplaySentMessage }) => {
                 touched={touched.email}
                 onChange={handleChange}
                 onBlur={handleBlur} 
-                width='78%' 
+                width='100%' 
                 type='text' 
                 value={values.email}
                 placeholder='Work Email' />
@@ -93,7 +93,7 @@ const Form = ({ onSubmit, onDisplaySentMessage }) => {
                 touched={touched.message}
                 onChange={handleChange}
                 onBlur={handleBlur} 
-                width='78%' 
+                width='100%' 
                 type='text' 
                 value={values.message}
                 label='How can we Help you?' />
@@ -137,6 +137,13 @@ const Form = ({ onSubmit, onDisplaySentMessage }) => {
           outline:none;
           border:none;
         }
+        @media all and (max-width: 500px) {
+          .name{
+            margin-top: 46px !important;
+          }
+          
+        }
+        
         .name{
           margin-top:60px;
         }
@@ -273,6 +280,19 @@ export const ContactUs = () => {
         text-align: center;
         color: #d2e8ff;
       }
+      @media all and (max-width: 525px) {
+        .form{
+          width: 92vw !important;
+          padding: 0 3% 42px 3% !important;
+        }
+      }
+      @media all and (max-width: 350px) {
+        .form{
+          padding: 0 2% 35px 2% !important;
+        }
+      }
+      
+      
       .form{
         margin-top:60px;
         width: 452px;
@@ -280,7 +300,7 @@ export const ContactUs = () => {
         box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.06);
         background-color: #ffffff;
         margin-bottom:74px;
-        padding-bottom:35px;
+        padding: 0 6.5% 35px 6.5%;
       }
 
       .wrapper:before {

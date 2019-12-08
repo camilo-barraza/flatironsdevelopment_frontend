@@ -87,7 +87,7 @@ export default class TextArea extends Component {
       }
       .textarea{
         background-color: #f9fafbff;
-        padding:30px 14px 5px 14px;
+        padding:30px 4.6% 5px 4.6%;
         border-radius: 5px 5px 0 0;
         border-bottom: 1px solid ${theme.input.border};
       }
@@ -167,7 +167,7 @@ export default class TextArea extends Component {
       .input-field ~ .focus-border{
         position: absolute; 
         bottom: -6px; 
-        left: -14px;
+        left: -5%;
         width: 0; 
         height: 2px; 
         background-color: ${theme.primary}; 
@@ -176,15 +176,15 @@ export default class TextArea extends Component {
       .error {
         position: absolute; 
         bottom: -6px; 
-        left: -14px;
-        width: 109%;
+        left: -5%;
+        width: 110%;
         height: 1px;
         background-color: ${theme.errorMsg}; 
         border-right:solid 28px ${theme.errorMsg}; 
         transition: 0.15s;
       }
       .input-field:focus ~ .focus-border{
-        width: 109%;
+        width: 110%;
         border-right:solid 28px ${theme.primary}; 
         transition: 0.12s;
       }

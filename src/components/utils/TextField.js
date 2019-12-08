@@ -102,7 +102,7 @@ export default class TextField extends Component {
       }
       .textfield{
         background-color: #f9fafbff;
-        padding:10px 16px 8px 16px;
+        padding:10px 4.6% 8px 4.6%;
         border-radius: 5px 5px 0 0;
         border-bottom: 1px solid ${theme.input.border};
       }
@@ -172,7 +172,7 @@ export default class TextField extends Component {
       .input-field ~ .focus-border{
         position: absolute; 
         bottom: -9px; 
-        left: -16px;
+        left: -5%;
         width: 0; 
         height: 2px; 
         background-color: ${theme.primary}; 
@@ -181,15 +181,15 @@ export default class TextField extends Component {
       .error {
         position: absolute; 
         bottom: -9px; 
-        left: -16px;
-        width: 110.4%;
+        left: -5%;
+        width: 110%;
         height: 1px;
         background-color: ${theme.errorMsg}; 
         border-right:solid 28px ${theme.errorMsg}; 
         transition: 0.15s;
       }
       .input-field:focus ~ .focus-border{
-        width: 110.4%;
+        width: 110%;
         border-right:solid 28px ${theme.primary}; 
         transition: 0.12s;
       }
