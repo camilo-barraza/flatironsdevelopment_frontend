@@ -96,7 +96,7 @@ const Form = ({ onSubmit, onDisplaySentMessage }) => {
                 width='100%' 
                 type='text' 
                 value={values.message}
-                label='How can we Help you?' />
+                label='How can we help you?' />
             </div>
             <div >
               <div className='centered' >
