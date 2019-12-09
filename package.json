@@ -21,6 +21,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "smooth-scroll": "^16.1.0",
     "styled-jsx": "^3.2.4",
     "yup": "^0.27.0"
   },

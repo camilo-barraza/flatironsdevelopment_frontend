@@ -12,6 +12,12 @@ import { ContactUs } from "../components/landing-page/contactUs"
 import { Footer } from "../components/landing-page/footer"
 import { Menu } from "../components/landing-page/menu"
 
+if (typeof window !== "undefined") {
+  require("smooth-scroll")('a[href*="#"]', {
+    speed: 350
+  })
+}
+
 const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
   return (
     <div>
@@ -19,7 +25,6 @@ const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
       <Helmet>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script src="js/scroll-local-path.js" />
       </Helmet>
       <Menu></Menu>
       <div id='mission'>
