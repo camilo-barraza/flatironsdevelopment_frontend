@@ -5,20 +5,26 @@ import { useMenuItems } from "../../content-hooks/landing-page/useMenuItems"
 export const Footer = () => {
   let menuItems = useMenuItems('Landing Page')
   return (<div className='wrapper centered'>
-    <div className='container space-between'>
-      <div className='logo-wrapper centered'>
+    <div className='container'>
+      <div className='logo-desktop centered'>
         <img draggable="false" src={logoImg} alt='logo'></img>
         <div className='copyright'>
           © 2019
         </div>
       </div>
       <div className='menu-wrapper centered'>
-        <div className='menu horizontal'>
+        <div className='menu'>
           {menuItems.map((menuItem, index) => (<div key={index}>
             <div className='menu-item'>
               <a href={menuItem.node.url}> {menuItem.node.label} </a>
             </div>
           </div>))}
+        </div>
+      </div>
+      <div className='logo-mobile centered'>
+        <img draggable="false" src={logoImg} alt='logo'></img>
+        <div className='copyright'>
+          © 2019
         </div>
       </div>
     </div>
@@ -33,8 +39,10 @@ export const Footer = () => {
         margin:0;
       }
       .container{
-        width:1200px;
+        width:90vw;
         padding:37px 0;
+        display: flex ;
+        justify-content: space-between ;
       }
       .copyright{
         margin-top:4.7px;
@@ -54,6 +62,37 @@ export const Footer = () => {
         -ms-user-select: none;
         user-select: none;
       }
+      .logo-mobile{
+        display: flex ;
+        flex-direction: column;
+        display:none ;
+        margin-top: 40px; 
+      }
+      @media all and (max-width: 1000px) {
+        .logo-mobile{
+          display: block ;
+        }
+        .copyright{
+          margin-left:0 !important; 
+        }
+        .logo-desktop{
+          display: none; 
+        }
+        .menu{
+          flex-direction: column !important;
+        }
+        .menu-item{
+          margin: 0 !important; 
+          margin-top: 21px !important; 
+        }
+        .container{
+          padding-top:9px !important;
+          padding-bottom:25px !important;
+          display: flex !important ;
+          flex-direction: column !important;
+        }
+      }
+      
       .menu-item{
         margin-right:24px;
         font-family: Montserrat;
@@ -62,7 +101,8 @@ export const Footer = () => {
         color: #d0e9f8;
       }
       .menu{
-
+        display: flex ;
+        flex-direction: row;
       }
     `}</style>
   </div>)
