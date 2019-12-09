@@ -272,7 +272,6 @@ export const ContactUs = () => {
       .contact-us-message{
         margin-top:9px;
         max-width:870px;
-        padding: 0 5%;
         font-family: Montserrat;
         font-size: 18px;
         font-weight: 200;
@@ -280,9 +279,17 @@ export const ContactUs = () => {
         text-align: center;
         color: #d2e8ff;
       }
+      @media all and (max-width: 1100px) {
+        .contact-us-message{
+          max-width:700px !important;
+          padding: 0 5% !important;
+        }
+      }
+      
       @media all and (max-width: 650px) {
         .title{
           font-size: 7vw !important; 
+          margin-bottom:43px !important;
         }
       }
       
@@ -307,7 +314,7 @@ export const ContactUs = () => {
       
       
       .form{
-        margin-top:60px;
+        margin-top:35px;
         width: 452px;
         border-radius: 5px;
         box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.06);
