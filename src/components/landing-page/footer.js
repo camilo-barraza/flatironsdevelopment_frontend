@@ -31,8 +31,10 @@ export const Footer = () => {
     <style jsx>{`
       a{
         text-decoration:none;
+        border:none;
+        outline: none !important;
       }
-      a:hover{
+      a:hover, a:focus{
         opacity:0.7;
       }
       img{
