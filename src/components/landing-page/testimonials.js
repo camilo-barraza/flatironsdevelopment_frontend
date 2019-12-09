@@ -64,13 +64,13 @@ export const Testimonials = () => {
               </div>
               <div className='company-info'>
                 <div style={{visibility:'hidden'}}>t</div>
-                <div className='company-logo desktop-logo' >
-                  <img alt="logo" src={data.companyLogo.sourceUrl}/>
+                <div className='desktop-logo' >
+                  <img className='company-logo' alt="logo" src={data.companyLogo.sourceUrl}/>
                 </div>
               </div>
             </div>
-            <div className='company-logo mobile-logo' >
-              <img alt="logo" src={data.companyLogo.sourceUrl}/>
+            <div className='mobile-logo' >
+              <img className='company-logo' alt="logo" src={data.companyLogo.sourceUrl}/>
             </div>
           </div>
         </div>
@@ -205,8 +205,13 @@ export const Testimonials = () => {
         line-height: 2.22;
         color: rgba(7, 22, 56, 0.85);
       }
+      .company-logo{
+        margin-top:1px;
+        height: 23px;
+      }
       .author-image{
         height:49px;
+        border-radius:50%;
       }
       @media all and (max-width: 500px) {
         .mobile-logo{
