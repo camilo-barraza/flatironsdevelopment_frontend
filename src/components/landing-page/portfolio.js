@@ -2,7 +2,7 @@ import React from "react"
 import { SectionHeader } from "./sectionHeader"
 import { useStaticQuery, graphql } from "gatsby"
 
-const ProjectImg = ({ src }) => (<div className='wrapper centered'>
+const ProjectImg = ({ src }) => (<div className='wrapper'>
     <img className='img' src={src} alt='project-img'></img>
     <style jsx>{`
       .img{
@@ -11,6 +11,17 @@ const ProjectImg = ({ src }) => (<div className='wrapper centered'>
         -webkit-filter: drop-shadow(3px -3px 30px rgb(15, 122, 145, 0.09)); 
         filter: drop-shadow(3px -3px 30px rgb(15, 122, 145, 0.09)); 
       }
+      @media all and (max-width: 1200px) {
+        .img{
+          margin:0;
+          -webkit-filter: drop-shadow(2px -2px 10px rgb(15, 122, 145, 0.09)); 
+          filter: drop-shadow(2px -2px 10px rgb(15, 122, 145, 0.09)); 
+        }
+        .wrapper{
+          margin: 0 5% !important;
+        }
+      }
+      
       .wrapper{
         margin-left:68px;
         margin-right:68px;
@@ -19,19 +30,25 @@ const ProjectImg = ({ src }) => (<div className='wrapper centered'>
 </div>)
 
 const Project = ({ orientation, numberedImage, project, description, projectImage }) => (<div className='centered'>
-  <div className='wrapper horizontal'>
-    {orientation === 'right' &&  <ProjectImg src={projectImage.sourceUrl}></ProjectImg>}
-    <div className='project-description'>
-      <div className='number-img'>
-        <img alt='numbered-img' src={numberedImage.sourceUrl}></img>
-      </div>
-      <div className='title'>
-        {project}
-      </div>
-      <div className='underline'></div>
-      <div className='content' dangerouslySetInnerHTML={{__html:description}}></div>
+  <div className='wrapper'>
+    <div className='project-img-right'>
+      <ProjectImg src={projectImage.sourceUrl}></ProjectImg>
     </div>
-    {orientation === 'left' && <ProjectImg src={projectImage.sourceUrl}></ProjectImg>} 
+    <div className='project-description-container centered'>
+      <div className='project-description'>
+        <div className='number-img'>
+          <img alt='numbered-img' src={numberedImage.sourceUrl}></img>
+        </div>
+        <div className='title'>
+          {project}
+        </div>
+        <div className='underline'></div>
+        <div className='content' dangerouslySetInnerHTML={{__html:description}}></div>
+      </div>
+    </div>
+    <div className='project-img-left'>
+      <ProjectImg src={projectImage.sourceUrl}></ProjectImg>
+    </div>
   </div>
   <style jsx>{`
     .number-img{
@@ -43,6 +60,8 @@ const Project = ({ orientation, numberedImage, project, description, projectImag
     .wrapper{
       margin-top:125px;
       margin-left:${orientation === 'left'?'100px;':'-100px'};
+      display: flex !important;
+      flex-direction: row !important;
     }
     .underline{
       margin-left:2px;
@@ -64,8 +83,50 @@ const Project = ({ orientation, numberedImage, project, description, projectImag
     .project-description{
       margin: 0 10px;
     }
+    @media all and (max-width: 1200px) {
+      .project-description{
+        width: 60vw !important;
+        margin: 0 10% !important;
+      }
+      .content{
+        max-width:1200px !important;
+        margin:0 !important; 
+        padding:0 !important;
+        font-size:18px !important;
+      }
+      .project-img-right{
+        display:none;
+      }
+      .wrapper{
+        margin-top: 62px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        margin-left:0 !important;
+      }
+      .project-img-left {
+        margin-top: 20px !important; 
+        display: block !important;
+      }
+    }
+    @media all and (max-width: 900px) {
+      .project-description{
+        width: 80vw !important;
+      }
+    }
+    @media all and (max-width: 600px) {
+      .project-description{
+        width: 100vw !important;
+      }
+    }
+    
+    .project-img-left {
+      display: ${orientation === 'right' ? 'none' : 'auto'} ;
+    }
+    .project-img-right {
+      display: ${orientation === 'left' ? 'none' : 'auto'} ;
+    }
     .content{
-      width:374px;
+      max-width:374px;
       text-align:left;
       font-family: Montserrat;
       font-size: 16px;
@@ -119,6 +180,21 @@ export const Portfolio = () => {
       .container{
         max-width:1200px;
       }
+      @media all and (max-width: 1200px) {
+        .section-header{
+          margin-bottom: 47px !important;
+        }
+        .wrapper{
+          margin-bottom: 100px !important;
+        }
+      }
+      
+      @media all and (max-width: 500px) {
+        .section-header{
+          margin-top: 73px !important;
+        }
+      }
+      
       .section-header{
         margin-top:89px;
       }

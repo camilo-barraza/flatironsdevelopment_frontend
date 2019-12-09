@@ -44,7 +44,7 @@ const Leader = ({profileImage, name, role, description}) => (<div className='wra
         margin-bottom:0px !important;
       }
       .underline{
-        margin-top:27px !important;
+        margin-top:24px !important;
       }
       .name{
         margin-top:38px !important;
@@ -113,7 +113,7 @@ const Leader = ({profileImage, name, role, description}) => (<div className='wra
       margin:0;
       padding:0;
       margin-top:27px;
-      max-width: 719px;
+      max-width: 600px;
       font-family: Montserrat;
       font-size: 18px;
       line-height: 2.22;
@@ -162,7 +162,7 @@ export const Leadership = () =>  {
     <style jsx>{`
       @media all and (max-width: 900px) {
         .section-header{
-          margin-bottom:0 !important;
+          margin-bottom:70px !important;
         }
         .leaders{
           margin-bottom:90px !important

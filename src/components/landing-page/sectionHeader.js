@@ -36,17 +36,16 @@ export const SectionHeader  = ({name, title, color}) => (<div className='centere
     }
     
     @media all and (max-width: 500px) {
-      .title{
-        margin-top:20px !important;
-        font-size: 32px !important;
-        line-height:1.44 !important;
-      }
       .section-name{
         font-size:12px !important;
       }
       .title{
-        font-size:30px !important;
-        max-width:668px !important;
+        font-size:32px !important;
+        padding:0 !important;
+        margin:0 7% !important;
+        margin-top: 12px !important;
+        line-height:1.44 !important;
+
       }
     }
     .container{
