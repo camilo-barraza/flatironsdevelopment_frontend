@@ -6,5 +6,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           behavior: 'smooth'
       })
   })
-})
-alert('hey')
+})r
