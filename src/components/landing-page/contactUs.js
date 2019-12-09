@@ -16,7 +16,7 @@ let ContactUsSchema = Yup.object().shape({
     .required('Required'),
   email: Yup.string()
     .min(1, 'Too Short!')
-    .required('Required'),
+    .required('Required').email('Invalid email'),
   message: Yup.string()
     .min(5, 'Too Short!')
     .required('Required')
@@ -238,8 +238,8 @@ export const ContactUs = () => {
         font-family: Montserrat;
         line-height: 2.22;
         font-weight:normal;
-        width:300px;
         font-size:18px;
+        padding:0 8%;
         color: rgba(7, 22, 56, 0.85);
       }
       .fade-in{
@@ -250,9 +250,9 @@ export const ContactUs = () => {
       }
       .email-sent{
         opacity:0;
-        position:absolute;
-        width:452px;
+        height:0px;
         margin-top:150px;
+        margin-bottom:-150px;
         font-weight:600;
         font-family: Montserrat;
         font-size: 25px;
