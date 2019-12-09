@@ -204,7 +204,7 @@ export const ContactUs = () => {
       <div >
         <img className='logo' draggable="false" src={logoImg} alt='logo'></img>
         <div className='title'>
-          Let’s work togehter!
+          Let’s work together!
         </div>
         <div className='contact-us-message' dangerouslySetInnerHTML={{__html:content}} ></div>
           {/* We would love to chat about your project. Shoot us an email at <span style={{fontWeight:'600'}} >info@flatironsdevelopment.com</span> or fill out this form, and we will get back to you as soon as possible. */}
