@@ -39,7 +39,8 @@ export const Footer = () => {
         margin:0;
       }
       .container{
-        width:90vw;
+        width:80%;
+        max-width:1300px;
         padding:37px 0;
         display: flex ;
         justify-content: space-between ;
@@ -68,7 +69,7 @@ export const Footer = () => {
         display:none ;
         margin-top: 40px; 
       }
-      @media all and (max-width: 1000px) {
+      @media all and (max-width: 1200px) {
         .logo-mobile{
           display: block ;
         }
