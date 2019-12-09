@@ -58,6 +58,7 @@ export const Clients = () => (<div id="clients" className='wrapper centered'>
     }
     
     .card{
+      z-index:100;
       margin:0 4.5% 0 4.5%;
       max-width: 1120px;
       padding: 0 0 18px 0;
@@ -65,7 +66,7 @@ export const Clients = () => (<div id="clients" className='wrapper centered'>
       -webkit-backdrop-filter: blur(18px);
       backdrop-filter: blur(18px);
       box-shadow: 0 2px 30px 0 rgba(7, 22, 56, 0.07);
-      background-color: rgba(255, 255, 255, 0.96);
+      background-color: rgba(255, 255, 255);
     }
     .title{
       margin: 44px 8% 5px 8%;
