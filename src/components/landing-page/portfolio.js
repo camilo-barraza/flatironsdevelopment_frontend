@@ -29,15 +29,16 @@ const ProjectImg = ({ src }) => (<div className='wrapper'>
     `}</style>
 </div>)
 
-const Project = ({ orientation, numberedImage, project, description, projectImage }) => (<div className='centered'>
+const Project = ({ index, orientation, project, description, projectImage }) => (<div className='centered'>
   <div className='wrapper'>
     <div className='project-img-right'>
       <ProjectImg src={projectImage.sourceUrl}></ProjectImg>
     </div>
     <div className='project-description-container centered'>
       <div className='project-description'>
-        <div className='number-img'>
-          <img alt='numbered-img' src={numberedImage.sourceUrl}></img>
+        <div className='number'>
+          {/* <img alt='numbered-img' src={numberedImage.sourceUrl}></img> */}
+          {`0${index+1}`}
         </div>
         <div className='title'>
           {project}
@@ -51,11 +52,17 @@ const Project = ({ orientation, numberedImage, project, description, projectImag
     </div>
   </div>
   <style jsx>{`
-    .number-img{
+    .number{
       height:1px;
       position:absolute;
-      margin-top:20px;
-      margin-left:-16px;
+      margin-top:90px;
+      margin-left:-20px;
+      font-weight:400;
+      line-height:0;
+      font-size:230px;
+      z-index:-1;
+      color:#F6F9FC;
+      font-family: DM Serif Text;
     }
     .wrapper{
       margin-top:125px;
@@ -147,9 +154,6 @@ export const Portfolio = () => {
             title
             pageContent{
               mostRecentWork{
-                numberedImage{
-                  sourceUrl
-                }
                 project
                 description
                 projectImage {
@@ -169,7 +173,7 @@ export const Portfolio = () => {
       </div>
       <div className='projects'>
         {mostRecentWork.map((project, index) => (<div key={index}>
-          <Project {...project} orientation={index%2 === 0? 'left': 'right'} />
+          <Project {...project} index={index} orientation={index%2 === 0? 'left': 'right'} />
         </div>))}
       </div>
     </div>
