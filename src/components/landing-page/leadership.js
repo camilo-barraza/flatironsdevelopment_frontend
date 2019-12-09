@@ -24,10 +24,11 @@ const Leader = ({profileImage, name, role, description}) => (<div className='wra
     @media all and (max-width: 1120px) {
       .wrapper{
         flex-direction: column !important;
+        margin-top:60px !important;
       }
       .description{
         margin-left:3% !important;
-      }
+      } 
       .underline-wrapper{
         display: flex ;
         align-items: center ;
@@ -40,7 +41,7 @@ const Leader = ({profileImage, name, role, description}) => (<div className='wra
         align-items: center ;
         justify-content: center ;
         text-align: center;
-        margin-bottom:15px !important;
+        margin-bottom:0px !important;
       }
       .underline{
         margin-top:27px !important;
@@ -106,7 +107,6 @@ const Leader = ({profileImage, name, role, description}) => (<div className='wra
       border: solid 1.5px #d0a617;
       margin-top:13px;
       margin-left:1px;
-      background-color: red;
     }
     .description{
       text-align:left;
@@ -163,6 +163,9 @@ export const Leadership = () =>  {
       @media all and (max-width: 900px) {
         .section-header{
           margin-bottom:0 !important;
+        }
+        .leaders{
+          margin-bottom:90px !important
         }
       }
       

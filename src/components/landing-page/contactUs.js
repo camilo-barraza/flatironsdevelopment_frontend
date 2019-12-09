@@ -112,7 +112,6 @@ const Form = ({ onSubmit, onDisplaySentMessage }) => {
           pointer-events: ${loading? 'none' :'' };
         }
         .spinner-wrapper{
-          background-color: red;
           width:100%;
         }
         .spinner{
@@ -272,7 +271,8 @@ export const ContactUs = () => {
       }
       .contact-us-message{
         margin-top:9px;
-        width:870px;
+        max-width:870px;
+        padding: 0 5%;
         font-family: Montserrat;
         font-size: 18px;
         font-weight: 200;
@@ -280,13 +280,26 @@ export const ContactUs = () => {
         text-align: center;
         color: #d2e8ff;
       }
-      @media all and (max-width: 525px) {
-        .form{
-          width: 92vw !important;
-          padding: 0 3% 42px 3% !important;
+      @media all and (max-width: 650px) {
+        .title{
+          font-size: 7vw !important; 
         }
       }
-      @media all and (max-width: 350px) {
+      
+      @media all and (max-width: 500px) {
+        .logo{
+          margin-top:72px;
+        }
+        .title{
+          font-size:30px !important;
+        }
+        .form{
+          margin-top:40px !important;
+          width: 92vw !important;
+          padding: 0 4% 42px 4% !important;
+        }
+      }
+      @media all and (max-width: 310px) {
         .form{
           padding: 0 2% 35px 2% !important;
         }
@@ -300,7 +313,7 @@ export const ContactUs = () => {
         box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.06);
         background-color: #ffffff;
         margin-bottom:74px;
-        padding: 0 6.5% 35px 6.5%;
+        padding: 0 52px 35px 52px;
       }
 
       .wrapper:before {
