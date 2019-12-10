@@ -114,9 +114,11 @@ export const Testimonials = () => {
         -ms-user-select: none;
         user-select: none;
       }
-      a{
+      a, a:visited{
         outline:none;
+        color:white;
       }
+      
       .quote-icon{
         width: 100%;
         text-align:left;

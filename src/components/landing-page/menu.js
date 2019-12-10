@@ -35,6 +35,11 @@ export const Menu = () => {
         text-decoration:none;
         border:none;
         outline: none !important;
+        color:#d0e9f8;
+      }
+      a:visited, a:focus{
+        color:#d0e9f8;
+        outline:none;
       }
       a:hover, a:focus{
         opacity:0.7;

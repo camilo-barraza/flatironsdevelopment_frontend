@@ -41,7 +41,8 @@ export const LandingHeader = () => {
         margin-top:-10px;
         width:100%;
       }
-      a{
+      a, a:visited, a:focus{
+        color:white;
         outline:none;
       }
       .button:hover, .button:focus{
