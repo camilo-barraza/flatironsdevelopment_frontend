@@ -208,7 +208,7 @@ export const Testimonials = () => {
         color: rgba(7, 22, 56, 0.85);
       }
       .company-logo{
-        padding-bottom:2px;
+        margin-top:1px;
         max-height: 23px;
       }
       .author-image{
