@@ -65,12 +65,12 @@ export const Testimonials = () => {
               <div className='company-info'>
                 <div style={{visibility:'hidden'}}>t</div>
                 <div className='desktop-logo' >
-                  <img className='company-logo' alt="logo" src={data.companyLogo.sourceUrl}/>
+                  <img height="23px" className='company-logo' alt="logo" src={data.companyLogo.sourceUrl}/>
                 </div>
               </div>
             </div>
             <div className='mobile-logo' >
-              <img className='company-logo' alt="logo" src={data.companyLogo.sourceUrl}/>
+              <img height="23px" className='company-logo' alt="logo" src={data.companyLogo.sourceUrl}/>
             </div>
           </div>
         </div>
@@ -208,12 +208,13 @@ export const Testimonials = () => {
         color: rgba(7, 22, 56, 0.85);
       }
       .company-logo{
-        margin-top:1px;
-        height: 23px;
+        max-height: 23px;
       }
       .author-image{
         height:49px;
         border-radius:50%;
+      }
+      .desktop-logo{
       }
       @media all and (max-width: 500px) {
         .mobile-logo{
