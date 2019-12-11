@@ -25,6 +25,9 @@ const IndexPage = ( { data }) => {
     <div>
       <SEO metaTags={seo} title={pageTitle} page="Landing" />
       <Helmet>
+        {/* styles will break if https://www.w3schools.com/w3css/4/w3.css is removed */}
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+        
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
       <Menu></Menu>
