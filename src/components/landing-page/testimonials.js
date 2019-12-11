@@ -39,7 +39,7 @@ export const Testimonials = () => {
   return (<div className='wrapper centered'>
     <div className='container'>
       <div className='section-header'>
-        <SectionHeader name="Our Clients" title="What they think of us "></SectionHeader>
+        <SectionHeader name="Our Clients" title="What they think of us"></SectionHeader>
         <div className='quote-icon-wrapper centered'>
           <div className='quote-icon'>
             <img className='quote-img' src={quoteImg} alt='quote' />

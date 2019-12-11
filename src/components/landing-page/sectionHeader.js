@@ -42,7 +42,7 @@ export const SectionHeader  = ({name, title, color}) => (<div className='centere
       .title{
         font-size:32px !important;
         padding:0 !important;
-        margin:0 7% !important;
+        margin:0 12% !important;
         margin-top: 12px !important;
         line-height:1.44 !important;
 
