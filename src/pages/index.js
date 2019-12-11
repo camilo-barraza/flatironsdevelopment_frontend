@@ -18,10 +18,12 @@ if (typeof window !== "undefined") {
   })
 }
 
-const IndexPage = ( { data: { fl: { pages: { nodes:[ { SEO:seo } ] } }  } }) => {
+const IndexPage = ( { data }) => {
+  const { fl: { pages: { nodes:[ { SEO:seo } ] } }  } = data
+  const { fl: { pages: { nodes:[  { pageContent:{ pageTitle} } ] } } } = data
   return (
     <div>
-      <SEO metaTags={seo} title="Home" page="Landing" />
+      <SEO metaTags={seo} title={pageTitle} page="Landing" />
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
@@ -79,6 +81,9 @@ export const query = graphql`
     fl {
       pages(where:{title:"Landing"}){
         nodes{
+          pageContent{
+            pageTitle
+          }
           SEO{
             metaTags {
               attribute{
