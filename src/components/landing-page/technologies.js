@@ -74,16 +74,16 @@ export const Technologies = () => {
     </div>
     <div className='centered'>
       <div className='tools centered wrapped'>
-          <Tool name ='React' src={reactImg} ></Tool>
-          <Tool name ='React Native' src={reactImg} ></Tool>
-          <Tool name ='Node' src={nodeImg} ></Tool>
-          <Tool name ='vue.js' src={vueImg} ></Tool>
-          <Tool name ='ruby on rails' src={railsImg} ></Tool>
-          <Tool name ='angular' src={angularImg} ></Tool>
-          <Tool name ='php' src={phpImg} ></Tool>
-          <Tool name ='wordpress' src={wordpressImg} ></Tool>
-          <Tool name ='ios' src={iosImg} ></Tool>
-          <Tool name ='android' src={androidImg} ></Tool>
+        <Tool name ='React' src={reactImg} ></Tool>
+        <Tool name ='React Native' src={reactImg} ></Tool>
+        <Tool name ='Node' src={nodeImg} ></Tool>
+        <Tool name ='vue.js' src={vueImg} ></Tool>
+        <Tool name ='ruby on rails' src={railsImg} ></Tool>
+        <Tool name ='angular' src={angularImg} ></Tool>
+        <Tool name ='php' src={phpImg} ></Tool>
+        <Tool name ='wordpress' src={wordpressImg} ></Tool>
+        <Tool name ='ios' src={iosImg} ></Tool>
+        <Tool name ='android' src={androidImg} ></Tool>
       </div>
     </div>
     <style jsx>{`
