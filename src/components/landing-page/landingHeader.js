@@ -42,6 +42,8 @@ export const LandingHeader = () => {
         width:100%;
       }
       a, a:visited, a:focus{
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent;
         color:white;
         outline:none;
       }

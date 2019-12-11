@@ -117,6 +117,8 @@ export const Testimonials = () => {
       a, a:visited{
         outline:none;
         color:white;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent;
       }
       
       .quote-icon{

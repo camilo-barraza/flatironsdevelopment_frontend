@@ -36,6 +36,8 @@ export const Menu = () => {
         border:none;
         outline: none !important;
         color:#d0e9f8;
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent;
       }
       a:visited, a:focus{
         color:#d0e9f8;
