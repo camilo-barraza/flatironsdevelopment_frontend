@@ -26,7 +26,6 @@ const IndexPage = ( { data }) => {
       <SEO metaTags={seo} title={pageTitle} page="Landing" />
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:image" itemprop="image" content="https://flatironsdev2.wpengine.com/wp-content/uploads/2019/10/logo@2x.png"></meta>
       </Helmet>
       <Menu></Menu>
       <div id='mission'>
