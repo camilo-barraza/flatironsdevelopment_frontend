@@ -72,7 +72,7 @@ const Project = ({ index, orientation, project, description, projectImage }) => 
     }
     .underline{
       margin-left:2px;
-      margin-top:15px;
+      margin-top:5px;
       margin-bottom:18px;
       width: 28px;
       height: 1px;
@@ -81,7 +81,6 @@ const Project = ({ index, orientation, project, description, projectImage }) => 
     .title{
       margin-top:76px;
       text-align:left;
-      height: 39px;
       font-family: Montserrat;
       font-size: 32px;
       font-weight: 600;
