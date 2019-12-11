@@ -84,8 +84,11 @@ export const Clients = () => (<div id="clients" className='wrapper centered'>
       margin-top:-90px;
     }
     @media all and (max-width: 500px) {
+      .card{
+        margin:0 2.5% 0 2.5% !important;
+      }
       .clients{
-        padding: 0 !important;
+        padding: 0 5% !important;
         margin-top: 28px !important;
         margin-left: 6px !important; 
         margin-right: 6px !important; 
