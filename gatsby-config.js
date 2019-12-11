@@ -1,8 +1,6 @@
 module.exports = {
   siteMetadata: {
     title: `Flatirons Development`,
-    description: `We build beautiful consumer facing software that improves business metrics.`,
-    author: `flatironsdevelopment`,
   },
   plugins: [
     `gatsby-plugin-styled-jsx`,
@@ -13,7 +11,7 @@ module.exports = {
         fieldName: `fl`,
         url: `https://flatironsdev2.wpengine.com/graphql`,
         typeName: `flatirons_website`,
-        refetchInterval: 60,
+        refetchInterval: 5,
       },
     },
     {

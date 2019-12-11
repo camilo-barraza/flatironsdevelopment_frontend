@@ -18,10 +18,10 @@ if (typeof window !== "undefined") {
   })
 }
 
-const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
+const IndexPage = ( { data: { fl: { pages: { nodes:[ { SEO:seo } ] } }  } }) => {
   return (
     <div>
-      <SEO title="Home" />
+      <SEO metaTags={seo} title="Home" page="Landing" />
       <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
@@ -77,12 +77,23 @@ const IndexPage = ({ data: {fl: { posts: { edges:blogPosts } } } } ) => {
 export const query = graphql`
   query getPosts {
     fl {
-      posts(first: 10000) {
-        edges {
-          node {
-            slug
-            title
-            content
+      pages(where:{title:"Landing"}){
+        nodes{
+          SEO{
+            metaTags {
+              attribute{
+                type
+                value
+              }
+              contentValue
+            }
+            customMetaTags{
+              attribute{
+                type
+                value
+              }
+              contentValue
+            }
           }
         }
       }
