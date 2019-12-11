@@ -45,15 +45,25 @@ const Tool = ({src, name}) => (<div className='wrapper centered'>
       }
     }
     
-    @media all and (max-width: 500px) {
+    @media all and (max-width: 660px) {
+      .image{
+        margin-top:8px !important;
+        margin-bottom:10px !important;
+        height:54px;
+      }
       .wrapper{
+        height:140px !important;
+        width:140px !important;
         margin: 7px 7px !important;
-        width:44vw !important;
         padding: 0 10px !important;
       }
+      .name{
+        margin-top:5px !important;
+        font-size: 14px !important;
+      }
       img{
-        height: 42px !important; 
-        max-height:42px !important;
+        height: 39px !important; 
+        max-height:39px !important;
       }
     }
     
@@ -83,7 +93,9 @@ export const Technologies = () => {
         <Tool name ='php' src={phpImg} ></Tool>
         <Tool name ='wordpress' src={wordpressImg} ></Tool>
         <Tool name ='ios' src={iosImg} ></Tool>
-        <Tool name ='android' src={androidImg} ></Tool>
+        <div className='extra'>
+          <Tool name ='android' src={androidImg} ></Tool>
+        </div>
       </div>
     </div>
     <style jsx>{`
@@ -98,7 +110,6 @@ export const Technologies = () => {
           padding-bottom:78px !important;
         }
       }
-      
       .tools{
         margin:0;
         margin-top:89px;
