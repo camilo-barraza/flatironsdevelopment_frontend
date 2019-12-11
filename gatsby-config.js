@@ -11,7 +11,7 @@ module.exports = {
         fieldName: `fl`,
         url: `https://flatironsdev2.wpengine.com/graphql`,
         typeName: `flatirons_website`,
-        refetchInterval: 5,
+        refetchInterval: 60,
       },
     },
     {
