@@ -22,21 +22,21 @@ function SEO({ description, lang, title, metaTags }) {
     `
   )
   let tags = []
-  if(metaTags.metaTags){
-    tags = tags.concat(metaTags.metaTags.map(tag => {
-      return {
-        [tag.attribute.type]:tag.attribute.value,
-        content:tag.contentValue
-      }
-    }))
-  }
-  if(metaTags.customMetaTags) {
-    tags = tags.concat(metaTags.customMetaTags.map(tag => {
-      return {
-        [tag.attribute.type]:tag.attribute.value,
-        content:tag.contentValue
-      }
-    }))
+  if(metaTags){
+    if(metaTags.metaTags) 
+      tags = tags.concat(metaTags.metaTags.map(tag => {
+        return {
+          [tag.attribute.type]:tag.attribute.value,
+          content:tag.contentValue
+        }
+      }))
+    if(metaTags.customMetaTags) 
+      tags = tags.concat(metaTags.customMetaTags.map(tag => {
+        return {
+          [tag.attribute.type]:tag.attribute.value,
+          content:tag.contentValue
+        }
+      }))
   }
   console.log(tags)
   return (
