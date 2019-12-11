@@ -54,6 +54,8 @@ export const LandingHeader = () => {
         transition: background-color 250ms linear;
       }
       button{
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        -webkit-tap-highlight-color: transparent;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -khtml-user-select: none;

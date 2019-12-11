@@ -135,6 +135,8 @@ const Form = ({ onSubmit, onDisplaySentMessage }) => {
         button{
           outline:none;
           border:none;
+          -webkit-tap-highlight-color: rgba(0,0,0,0);
+          -webkit-tap-highlight-color: transparent;
         }
         @media all and (max-width: 500px) {
           .name{
